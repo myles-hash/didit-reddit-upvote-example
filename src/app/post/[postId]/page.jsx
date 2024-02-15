@@ -3,6 +3,25 @@ import { CommentList } from "@/components/CommentList";
 import { Vote } from "@/components/Vote";
 import { db } from "@/db";
 
+export async function generateMetadata({ params }) {
+  const postId = params.postId;
+  const postTitle = await db.query(
+    `SELECT posts.title, posts.user_id FROM posts WHERE id = ${postId}`
+  )
+  const postTitleDone = postTitle.rows[0].title;
+  const user_Id = postTitle.rows[0].user_id;
+
+  const postName = await db.query(
+    `SELECT users.name FROM users WHERE id = ${user_Id}`
+  )
+  
+  return {
+    title: `${postTitleDone}`,
+   description: `Post:${postTitle} by ${postName}`
+  }
+}
+ 
+
 export default async function SinglePostPage({ params }) {
   const postId = params.postId;
 

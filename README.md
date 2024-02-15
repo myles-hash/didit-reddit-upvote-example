@@ -1,6 +1,6 @@
 ## Upvote
 
-Upvote is a Reddit-esque web application that allows users to create posts, upvote and downvote posts, and common on posts in a multi-threaded nested list.
+Upvote is a Reddit-esque web application that allows users to create posts, upvote and downvote posts, and comment on posts in a multi-threaded nested list.
 
 The project is built using Next.js with the /app router and Tailwind CSS, and uses NextAuth for user authentication. The data is stored in a Postgres database, which is created and accessed with raw SQL queries using the `pg` package.
 
