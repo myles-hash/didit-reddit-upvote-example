@@ -14,7 +14,7 @@ export async function Vote({ postId, votes }) {
     const session = await auth();
 
     
-    // console.log("Downvote", postId, "by user", session.user.id);
+    console.log("Downvote", postId, "by user", session.user.id);
     await db.query(
       "INSERT INTO votes (user_id, post_id, vote, vote_type) VALUES ($1, $2, $3, $4)",
       [session.user.id, postId, 1, "post"]
@@ -29,7 +29,7 @@ export async function Vote({ postId, votes }) {
     "use server";
     const session = await auth();
 
-    // console.log("Downvote", postId, "by user", session.user.id);
+    console.log("Downvote", postId, "by user", session.user.id);
     await db.query(
       "INSERT INTO votes (user_id, post_id, vote, vote_type) VALUES ($1, $2, $3, $4)",
       [session.user.id, postId, -1, "post"]
