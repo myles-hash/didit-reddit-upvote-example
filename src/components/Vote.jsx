@@ -3,6 +3,7 @@ import auth from "../app/middleware";
 import { revalidatePath } from "next/cache";
 import { VoteButton } from "./VoteButton";
 import { LoginButton } from "./LoginButton";
+//try fix
 
 export async function Vote({ postId, votes }) {
   const session = await auth();
